@@ -1,19 +1,8 @@
-from flask import Flask, request
-import os
+
+from flask import Flask
 app = Flask(__name__)
-
-@app.route("/")
+@app.route('/')
 def home():
-    return "Nkateko Caring LIVE - All 9 Provinces!"
-
-@app.route("/webhook", methods=["GET","POST"])
-def webhook():
-    if request.method == "GET":
-        if request.args.get("hub.verify_token") == "nkateko123":
-            return request.args.get("hub.challenge")
-        return "fail"
-    return "ok", 200
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+    return """<html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Nkateko Caring</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f8f9fa}.h{background:#c2185b;color:white;padding:20px;text-align:center}.hero{background:linear-gradient(#c2185b,#880e4f);color:white;padding:30px 20px;text-align:center}.btn{display:inline-block;background:white;color:#c2185b;padding:12px 25px;border-radius:30px;text-decoration:none;font-weight:bold;margin:5px}.c{background:white;padding:15px;margin:10px auto;max-width:900px;border-radius:10px}.contact{background:#c2185b;color:white;padding:30px;text-align:center}</style></head><body><div class='h'><h1>Nkateko Caring at Your Own Home</h1><p>❤️ Trusted Caregivers ❤️</p></div><div class='hero'><h2>LIVE - All 9 Provinces!</h2><p>Boksburg, Limpopo, Gauteng & All SA</p><p>Elderly | Frail | Disability | Dementia</p><br><a class='btn' href='tel:0737938724'>📞 073 793 8724</a><a class='btn' href='https://wa.me/27737938724' style='background:#25D366;color:white'>WhatsApp</a><br><br>www.nkatekocaring.co.za</div><div class='c'><h3 style='color:#c2185b'>👵 Services</h3><p>✅ Elderly, Frail, Disability, Dementia, Palliative, Live-in/out, 24/7</p></div><div class='c'><h3 style='color:#c2185b'>📍 All 9 Provinces</h3><p><b>Gauteng:</b> Boksburg, Johannesburg, Pretoria<br><b>Limpopo:</b> Polokwane, Thulamhashe, Giyani, Tzaneen, Lephalale, Nkowankowa<br><b>All:</b> Limpopo, Gauteng, Mpumalanga, North West, Free State, KZN, Eastern, Western, Northern Cape</p></div><div class='c'><h3 style='color:#c2185b'>⭐ Why Us?</h3><p>✔️ Qualified, Police Cleared, From R150/day, 24/7, 100+ Families</p></div><div class='contact'><h2>Contact Nkateko!</h2><p style='font-size:24px;font-weight:bold'>073 793 8724</p><p>www.nkatekocaring.co.za<br>molletnkateko@gmail.com</p><br><a class='btn' href='https://wa.me/27737938724' style='background:#25D366;color:white'>WhatsApp Now</a></div></body></html>"""
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=10000)
